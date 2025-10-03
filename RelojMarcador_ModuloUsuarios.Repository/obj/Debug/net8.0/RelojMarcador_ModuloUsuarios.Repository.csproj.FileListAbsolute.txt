@@ -1,0 +1,16 @@
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.deps.json
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.pdb
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.pdb
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.csproj.AssemblyReference.cache
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.AssemblyInfoInputs.cache
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.AssemblyInfo.cs
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.sourcelink.json
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMar.E6416C4B.Up2Date
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\refint\RelojMarcador_ModuloUsuarios.Repository.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Repository.pdb
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Repository\obj\Debug\net8.0\ref\RelojMarcador_ModuloUsuarios.Repository.dll
