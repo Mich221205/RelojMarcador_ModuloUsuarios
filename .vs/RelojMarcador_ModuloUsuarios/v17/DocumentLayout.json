@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F78934F7-8241-4D02-9DEC-C48EB00244F4}|RelojMarcador_ModuloUsuarios.Services\\RelojMarcador_ModuloUsuarios.Services.csproj|c:\\users\\usuario\\workspace\\relojmarcador_modulousuarios\\relojmarcador_modulousuarios.services\\marcaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F78934F7-8241-4D02-9DEC-C48EB00244F4}|RelojMarcador_ModuloUsuarios.Services\\RelojMarcador_ModuloUsuarios.Services.csproj|solutionrelative:relojmarcador_modulousuarios.services\\marcaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1654FC3C-7D2E-4FAA-89A0-86F883166EB6}|RelojMarcador_ModuloUsuarios.Repository\\RelojMarcador_ModuloUsuarios.Repository.csproj|c:\\users\\usuario\\workspace\\relojmarcador_modulousuarios\\relojmarcador_modulousuarios.repository\\marcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1654FC3C-7D2E-4FAA-89A0-86F883166EB6}|RelojMarcador_ModuloUsuarios.Repository\\RelojMarcador_ModuloUsuarios.Repository.csproj|solutionrelative:relojmarcador_modulousuarios.repository\\marcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1654FC3C-7D2E-4FAA-89A0-86F883166EB6}|RelojMarcador_ModuloUsuarios.Repository\\RelojMarcador_ModuloUsuarios.Repository.csproj|c:\\users\\usuario\\workspace\\relojmarcador_modulousuarios\\relojmarcador_modulousuarios.repository\\imarcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1654FC3C-7D2E-4FAA-89A0-86F883166EB6}|RelojMarcador_ModuloUsuarios.Repository\\RelojMarcador_ModuloUsuarios.Repository.csproj|solutionrelative:relojmarcador_modulousuarios.repository\\imarcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MarcaService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Services\\MarcaService.cs",
+              "RelativeDocumentMoniker": "RelojMarcador_ModuloUsuarios.Services\\MarcaService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Services\\MarcaService.cs",
+              "RelativeToolTip": "RelojMarcador_ModuloUsuarios.Services\\MarcaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T21:57:49.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MarcaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Repository\\MarcaRepository.cs",
+              "RelativeDocumentMoniker": "RelojMarcador_ModuloUsuarios.Repository\\MarcaRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Repository\\MarcaRepository.cs",
+              "RelativeToolTip": "RelojMarcador_ModuloUsuarios.Repository\\MarcaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T21:51:37.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IMarcaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Repository\\IMarcaRepository.cs",
+              "RelativeDocumentMoniker": "RelojMarcador_ModuloUsuarios.Repository\\IMarcaRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\workspace\\RelojMarcador_ModuloUsuarios\\RelojMarcador_ModuloUsuarios.Repository\\IMarcaRepository.cs",
+              "RelativeToolTip": "RelojMarcador_ModuloUsuarios.Repository\\IMarcaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T21:51:12.413Z",
+              "EditorCaption": ""
             }
           ]
         }

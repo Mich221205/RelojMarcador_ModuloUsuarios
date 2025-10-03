@@ -1,0 +1,12 @@
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.deps.json
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\bin\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.pdb
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.AssemblyInfoInputs.cache
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.AssemblyInfo.cs
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.sourcelink.json
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\refint\RelojMarcador_ModuloUsuarios.Entities.dll
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\RelojMarcador_ModuloUsuarios.Entities.pdb
+C:\Users\Usuario\workspace\RelojMarcador_ModuloUsuarios\RelojMarcador_ModuloUsuarios.Entities\obj\Debug\net8.0\ref\RelojMarcador_ModuloUsuarios.Entities.dll

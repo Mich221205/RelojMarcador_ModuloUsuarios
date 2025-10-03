@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RelojMarcador_ModuloUsuarios.Entities\RelojMarcador_ModuloUsuarios.Entities.csproj" />
+    <ProjectReference Include="..\RelojMarcador_ModuloUsuarios.Repository\RelojMarcador_ModuloUsuarios.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
