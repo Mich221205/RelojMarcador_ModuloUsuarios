@@ -50,41 +50,54 @@ namespace RelojMarcador_ModuloUsuarios.Pages
             {
                 if (string.IsNullOrWhiteSpace(Identificacion) || string.IsNullOrWhiteSpace(Contrasena))
                 {
-                    Mensaje = "Debe ingresar usuario y contraseña.";
+                    ViewData["ModalType"] = "warning";
+                    ViewData["ModalTitle"] = "Atención";
+                    ViewData["ModalMessage"] = "Debe ingresar usuario y contraseña.";
                     return Page();
                 }
 
                 var valido = await _service.ValidarFuncionario(Identificacion, Contrasena);
                 if (!valido)
                 {
-                    Mensaje = "Credenciales inválidas.";
+                    ViewData["ModalType"] = "error";
+                    ViewData["ModalTitle"] = "Error";
+                    ViewData["ModalMessage"] = "Credenciales inválidas.";
                     return Page();
                 }
 
                 if (IdAreaSeleccionada <= 0)
                 {
-                    Mensaje = "Debe seleccionar un área.";
+                    ViewData["ModalType"] = "warning";
+                    ViewData["ModalTitle"] = "Advertencia";
+                    ViewData["ModalMessage"] = "Debe seleccionar un área.";
                     return Page();
                 }
 
                 if (TipoMarca != "Entrada" && TipoMarca != "Salida")
                 {
-                    Mensaje = "Debe seleccionar un tipo de marca.";
+                    ViewData["ModalType"] = "warning";
+                    ViewData["ModalTitle"] = "Advertencia";
+                    ViewData["ModalMessage"] = "Debe seleccionar un tipo de marca.";
                     return Page();
                 }
 
                 var idMarca = await _service.RegistrarMarca(Identificacion, IdAreaSeleccionada, Detalle, TipoMarca);
                 var horaServidor = DateTime.Now.ToString("HH:mm:ss");
 
-                Mensaje = $"Marca registrada (ID={idMarca}) con éxito a las {horaServidor}.";
+                ViewData["ModalType"] = "success";
+                ViewData["ModalTitle"] = "Éxito";
+                ViewData["ModalMessage"] = $"Marca registrada correctamente (ID={idMarca}) a las {horaServidor}.";
             }
             catch (Exception ex)
             {
-                Mensaje = "Error: " + ex.Message;
+                ViewData["ModalType"] = "error";
+                ViewData["ModalTitle"] = "Error inesperado";
+                ViewData["ModalMessage"] = ex.Message;
             }
 
             return Page();
         }
     }
 }
+
 
