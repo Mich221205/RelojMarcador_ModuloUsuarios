@@ -9,7 +9,7 @@ namespace RelojMarcador_ModuloUsuarios.Entities
     public class Marca
     {
         public int ID_Marca { get; set; }
-        public int ID_Funcionario { get; set; }
+        public int ID_Usuario { get; set; }
         public int ID_Area { get; set; }
         public string Detalle { get; set; } = string.Empty;
         public string Tipo_Marca { get; set; } = string.Empty; //Entrada o Salida

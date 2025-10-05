@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RelojMarcador_ModuloUsuarios.Services"
+    "\\RelojMarcador_ModuloUsuarios",
+    "\\RelojMarcador_ModuloUsuarios.Services",
+    "\\RelojMarcador_ModuloUsuarios\\Pages"
   ],
   "SelectedNode": "\\RelojMarcador_ModuloUsuarios.sln",
   "PreviewInSolutionExplorer": false

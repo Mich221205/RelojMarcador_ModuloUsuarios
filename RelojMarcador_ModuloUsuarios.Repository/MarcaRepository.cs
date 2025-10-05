@@ -25,11 +25,11 @@ namespace RelojMarcador_ModuloUsuarios.Repository
             return conn.State.ToString();
         }
 
-        public async Task<bool> ValidarFuncionario(string identificacion, string contrasena)
+        public async Task<bool> ValidarUsuario(string identificacion, string contrasena)
         {
             const string sql = @"
                 SELECT COUNT(1)
-                FROM Funcionarios
+                FROM usuario
                 WHERE Identificacion = @identificacion
                   AND Contrasena = @contrasena;";
 
@@ -38,46 +38,27 @@ namespace RelojMarcador_ModuloUsuarios.Repository
             return result > 0;
         }
 
-
-        public async Task<Funcionario?> ObtenerFuncionarioPorIdentificacion(string identificacion)
+        public async Task<int> ObtenerIDUsuario(string identificacion)
         {
-            const string sql = @"SELECT ID_Funcionario, Identificacion, Contrasena, Estado 
-                                 FROM Funcionarios 
-                                 WHERE Identificacion = @identificacion LIMIT 1;";
-
-            using var db = new MySqlConnection(_connectionString);
-            return await db.QueryFirstOrDefaultAsync<Funcionario>(sql, new { identificacion });
-        }
-
-        public async Task<int> ObtenerIDFuncionario(string identificacion)
-        {
-            const string sql = @"SELECT ID_Funcionario FROM Funcionarios WHERE Identificacion = @Identificacion;";
+            const string sql = @"SELECT ID_Usuario FROM usuario WHERE Identificacion = @Identificacion;";
             using var db = new MySqlConnection(_connectionString);
             var result = await db.ExecuteScalarAsync<int?>(sql, new { Identificacion = identificacion });
             return result ?? 0;
         }
 
-        public async Task<IEnumerable<Area>> ObtenerAreasFuncionario(int idFuncionario)
+        public async Task<IEnumerable<Area>> ObtenerAreasUsuario(int idFuncionario)
         {
             const string sql = @"SELECT a.ID_Area AS Id_Area, a.Nombre_Area 
-                                 FROM Funcionario_Area fa
+                                 FROM usuario_area fa
                                  INNER JOIN Areas a ON fa.ID_Area = a.ID_Area
-                                 WHERE fa.ID_Funcionario = @idFuncionario;";
+                                 WHERE fa.ID_Usuario = @idFuncionario;;";
             using var db = new MySqlConnection(_connectionString);
             return await db.QueryAsync<Area>(sql, new { idFuncionario });
         }
 
-        public async Task<bool> AreaAsociadaAFuncionario(int idFuncionario, int idArea)
-        {
-            const string sql = @"SELECT COUNT(1) FROM Funcionario_Area 
-                                 WHERE ID_Funcionario = @idFuncionario AND ID_Area = @idArea;";
-            using var db = new MySqlConnection(_connectionString);
-            return await db.ExecuteScalarAsync<int>(sql, new { idFuncionario, idArea }) > 0;
-        }
-
         public async Task<int> RegistrarMarca(int idFuncionario, int idArea, string? detalle, string tipoMarca)
         {
-            const string sql = @"INSERT INTO Marca (ID_Funcionario, ID_Area, Detalle, Tipo_Marca) 
+            const string sql = @"INSERT INTO Marca (ID_Usuario, ID_Area, Detalle, Tipo_Marca) 
                                  VALUES (@idFuncionario, @idArea, @detalle, @tipoMarca);
                                  SELECT LAST_INSERT_ID();";
             using var db = new MySqlConnection(_connectionString);

@@ -19,24 +19,24 @@ namespace RelojMarcador_ModuloUsuarios.Services
         // Valida directamente con el método del Repository
         public async Task<bool> ValidarFuncionario(string identificacion, string contrasena)
         {
-            return await _repo.ValidarFuncionario(identificacion, contrasena);
+            return await _repo.ValidarUsuario(identificacion, contrasena);
         }
 
         // Obtiene las áreas asociadas a un funcionario por su identificación
         public async Task<IEnumerable<Area>> ObtenerAreasPorIdentificacion(string identificacion)
         {
-            var idFuncionario = await _repo.ObtenerIDFuncionario(identificacion);
+            var idFuncionario = await _repo.ObtenerIDUsuario(identificacion);
 
             if (idFuncionario == 0)
                 return Enumerable.Empty<Area>();
 
-            return await _repo.ObtenerAreasFuncionario(idFuncionario);
+            return await _repo.ObtenerAreasUsuario(idFuncionario);
         }
 
         // Registra una nueva marca
         public async Task<int> RegistrarMarca(string identificacion, int idArea, string detalle, string tipoMarca)
         {
-            var idFuncionario = await _repo.ObtenerIDFuncionario(identificacion);
+            var idFuncionario = await _repo.ObtenerIDUsuario(identificacion);
 
             if (idFuncionario == 0)
                 throw new System.Exception("Funcionario no encontrado");
