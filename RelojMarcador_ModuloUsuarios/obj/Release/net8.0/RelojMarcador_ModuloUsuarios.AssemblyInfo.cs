@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RelojMarcador_ModuloUsuarios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+943c5a5b3a7700de0416b32b56ae0f6b1de1c62b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2bbbfd3aa690907d9e8b61d212d05677c68bb9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("RelojMarcador_ModuloUsuarios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RelojMarcador_ModuloUsuarios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RelojMarcador_ModuloUsuarios.Entities
 {
 
-        public class Funcionario
+        public class Usuario
         {
             public string Identificacion { get; set; } = string.Empty;
             public string Contrasena { get; set; } = string.Empty;

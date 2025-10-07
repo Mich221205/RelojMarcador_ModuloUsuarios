@@ -71,16 +71,6 @@
                     <div class="col-md-7 p-4">
                         <h4 class="mb-4">Realizar Marca</h4>
 
-                        <!-- Mensaje del servidor -->
-                        @if (!string.IsNullOrEmpty(Model.Mensaje))
-                        {
-                            <div class="alert alert-info">@Model.Mensaje</div>
-                        }
-
-                        <!-- Mensajes de validación dinámica -->
-                        <div id="alertaError" class="alert alert-danger d-none" aria-live="polite"></div>
-                        <div id="alertaOk" class="alert alert-success d-none" aria-live="polite"></div>
-
                         <form id="formMarca" method="post">
                             @Html.AntiForgeryToken()
 
@@ -144,15 +134,15 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         const inputUsuario = document.getElementById("usuario");
-        const inputClave   = document.getElementById("clave");
-        const selectArea   = document.getElementById("area");
-        const alertaError  = document.getElementById("alertaError");
-        const alertaOk     = document.getElementById("alertaOk");
-        const form         = document.getElementById("formMarca");
-        const btnText      = document.getElementById("btnText");
-        const btnSpinner   = document.getElementById("btnSpinner");
+        const inputClave = document.getElementById("clave");
+        const selectArea = document.getElementById("area");
+        const form = document.getElementById("formMarca");
+        const btnText = document.getElementById("btnText");
+        const btnSpinner = document.getElementById("btnSpinner");
 
         const getToken = () => document.querySelector('input[name="__RequestVerificationToken"]')?.value ?? "";
 
@@ -180,19 +170,10 @@
 
                 let data = await resp.json();
 
-                if (!data.success) {
-                    alertaError.classList.remove("d-none");
-                    alertaError.innerText = data.message || "Credenciales inválidas";
-                    alertaOk.classList.add("d-none");
-                    selectArea.innerHTML = '<option value="">Seleccione su área</option>';
-                    return;
-                }
-
-                alertaError.classList.add("d-none");
-                alertaOk.classList.remove("d-none");
-                alertaOk.innerText = "Credenciales válidas";
-
                 selectArea.innerHTML = '<option value="">Seleccione su área</option>';
+
+                if (!data.success) return;
+
                 data.areas.forEach(area => {
                     const option = document.createElement("option");
                     option.value = area.id;
@@ -205,17 +186,12 @@
                 }
 
             } catch (err) {
-                alertaError.classList.remove("d-none");
-                alertaError.innerText = "Error de conexión con el servidor";
-                alertaOk.classList.add("d-none");
-                selectArea.innerHTML = '<option value="">Seleccione su área</option>';
+                console.error("Error al validar:", err);
             }
         }
 
         inputUsuario.addEventListener("input", () => debounce(validarYObtenerAreas));
         inputClave.addEventListener("input", () => debounce(validarYObtenerAreas));
-        inputUsuario.addEventListener("blur", validarYObtenerAreas);
-        inputClave.addEventListener("blur", validarYObtenerAreas);
 
         form.addEventListener("submit", () => {
             btnSpinner.classList.remove("d-none");
@@ -231,5 +207,56 @@
         setInterval(actualizarReloj, 1000);
         actualizarReloj();
     </script>
+
+    <!-- Modal General -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg rounded-4">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="messageModalLabel">@ViewData["ModalTitle"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>@ViewData["ModalMessage"]</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var msg = '@Html.Raw(Json.Serialize(ViewData["ModalMessage"]))';
+            var type = '@Html.Raw(Json.Serialize(ViewData["ModalType"]))';
+
+            if (msg && msg !== "null" && msg !== "") {
+                var modalHeader = document.getElementById("modalHeader");
+                modalHeader.className = "modal-header";
+
+                if (type === "success") {
+                    modalHeader.classList.add("bg-success", "text-white");
+                } else if (type === "error") {
+                    modalHeader.classList.add("bg-danger", "text-white");
+                } else if (type === "warning") {
+                    modalHeader.classList.add("bg-warning", "text-dark");
+                } else {
+                    modalHeader.classList.add("bg-info", "text-white");
+                }
+
+                const messageModal = new bootstrap.Modal(document.getElementById("messageModal"));
+                messageModal.show();
+
+                if (type === "success") {
+                    const modal = document.getElementById("messageModal");
+                    modal.addEventListener("hidden.bs.modal", () => {
+                        location.reload();
+                    });
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
