@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MySqlConnector;
 using RelojMarcador_ModuloUsuarios.Services;
 
 namespace RelojMarcador_ModuloUsuarios.Pages
@@ -24,78 +25,87 @@ namespace RelojMarcador_ModuloUsuarios.Pages
         public List<SelectListItem> Areas { get; set; }
         public string Mensaje { get; set; } = "";
 
-        // AJAX para validar y devolver áreas
         public async Task<JsonResult> OnPostValidar(string identificacion, string contrasena)
         {
-            if (string.IsNullOrWhiteSpace(identificacion) || string.IsNullOrWhiteSpace(contrasena))
-                return new JsonResult(new { success = false, message = "Faltan credenciales" });
-
-            var valido = await _service.ValidarFuncionario(identificacion, contrasena);
-            if (!valido)
-                return new JsonResult(new { success = false, message = "Credenciales inválidas" });
-
-            var areas = await _service.ObtenerAreasPorIdentificacion(identificacion);
-
-            return new JsonResult(new
+            try
             {
-                success = true,
-                areas = areas.Select(a => new { id = a.Id_Area, nombre = a.Nombre_Area })
-            });
+                if (string.IsNullOrWhiteSpace(identificacion) || string.IsNullOrWhiteSpace(contrasena))
+                    return new JsonResult(new { success = false, message = "Faltan credenciales." });
+
+                var valido = await _service.ValidarFuncionario(identificacion, contrasena);
+                if (!valido)
+                    return new JsonResult(new { success = false, message = "Credenciales inválidas." });
+
+                var areas = await _service.ObtenerAreasPorIdentificacion(identificacion);
+
+                return new JsonResult(new
+                {
+                    success = true,
+                    areas = areas.Select(a => new { id = a.Id_Area, nombre = a.Nombre_Area })
+                });
+            }
+            catch (MySqlException ex)
+            {
+                return new JsonResult(new { success = false, message = $"Error de base de datos: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, message = $"Error inesperado: {ex.Message}" });
+            }
         }
 
-        // POST para registrar marca
         public async Task<IActionResult> OnPostAsync()
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(Identificacion) || string.IsNullOrWhiteSpace(Contrasena))
                 {
-                    ViewData["ModalType"] = "warning";
-                    ViewData["ModalTitle"] = "Atención";
-                    ViewData["ModalMessage"] = "Debe ingresar usuario y contraseña.";
+                    MostrarModal("warning", "Atención", "Debe ingresar usuario y contraseña.");
                     return Page();
                 }
 
                 var valido = await _service.ValidarFuncionario(Identificacion, Contrasena);
                 if (!valido)
                 {
-                    ViewData["ModalType"] = "error";
-                    ViewData["ModalTitle"] = "Error";
-                    ViewData["ModalMessage"] = "Credenciales inválidas.";
+                    MostrarModal("error", "Error", "Credenciales inválidas.");
                     return Page();
                 }
 
                 if (IdAreaSeleccionada <= 0)
                 {
-                    ViewData["ModalType"] = "warning";
-                    ViewData["ModalTitle"] = "Advertencia";
-                    ViewData["ModalMessage"] = "Debe seleccionar un área.";
+                    MostrarModal("warning", "Advertencia", "Debe seleccionar un área.");
                     return Page();
                 }
 
                 if (TipoMarca != "Entrada" && TipoMarca != "Salida")
                 {
-                    ViewData["ModalType"] = "warning";
-                    ViewData["ModalTitle"] = "Advertencia";
-                    ViewData["ModalMessage"] = "Debe seleccionar un tipo de marca.";
+                    MostrarModal("warning", "Advertencia", "Debe seleccionar un tipo de marca.");
                     return Page();
                 }
 
+                // Registrar marca
                 var idMarca = await _service.RegistrarMarca(Identificacion, IdAreaSeleccionada, Detalle, TipoMarca);
                 var horaServidor = DateTime.Now.ToString("HH:mm:ss");
 
-                ViewData["ModalType"] = "success";
-                ViewData["ModalTitle"] = "Éxito";
-                ViewData["ModalMessage"] = $"Marca registrada correctamente (ID={idMarca}) a las {horaServidor}.";
+                MostrarModal("success", "Éxito", $"Marca registrada correctamente (ID={idMarca}) a las {horaServidor}.");
+            }
+            catch (MySqlException ex)
+            {
+                MostrarModal("error", "Error de Base de Datos", $"Ocurrió un problema al registrar la marca: {ex.Message}");
             }
             catch (Exception ex)
             {
-                ViewData["ModalType"] = "error";
-                ViewData["ModalTitle"] = "Error inesperado";
-                ViewData["ModalMessage"] = ex.Message;
+                MostrarModal("error", "Error inesperado", $"Ocurrió un error inesperado: {ex.Message}");
             }
 
             return Page();
+        }
+
+        private void MostrarModal(string tipo, string titulo, string mensaje)
+        {
+            ViewData["ModalType"] = tipo;
+            ViewData["ModalTitle"] = titulo;
+            ViewData["ModalMessage"] = mensaje;
         }
     }
 }
